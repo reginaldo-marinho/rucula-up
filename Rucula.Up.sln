@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RuculaUp.EntityFramework", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RuculaUp.Domain", "src\RuculaUp.Domain\RuculaUp.Domain.csproj", "{735C2B0C-5A87-414A-9370-574C7103CBD2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RuculaUp.EntityFramework.Query", "src\RuculaUp.EntityFramework.Query\RuculaUp.EntityFramework.Query.csproj", "{1DCA1ECD-A61E-4D41-9ADE-6AD8FBEB7B89}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{735C2B0C-5A87-414A-9370-574C7103CBD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{735C2B0C-5A87-414A-9370-574C7103CBD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{735C2B0C-5A87-414A-9370-574C7103CBD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DCA1ECD-A61E-4D41-9ADE-6AD8FBEB7B89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DCA1ECD-A61E-4D41-9ADE-6AD8FBEB7B89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DCA1ECD-A61E-4D41-9ADE-6AD8FBEB7B89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DCA1ECD-A61E-4D41-9ADE-6AD8FBEB7B89}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,5 +50,6 @@ Global
 		{005D436A-1697-4D5C-B7E7-0561B8C5C5CB} = {B4F1F714-E52B-45F0-8E49-0A9660B8A4BF}
 		{AC28DBE9-1A05-48FD-BE6F-E70C63A1360E} = {B4F1F714-E52B-45F0-8E49-0A9660B8A4BF}
 		{735C2B0C-5A87-414A-9370-574C7103CBD2} = {B4F1F714-E52B-45F0-8E49-0A9660B8A4BF}
+		{1DCA1ECD-A61E-4D41-9ADE-6AD8FBEB7B89} = {B4F1F714-E52B-45F0-8E49-0A9660B8A4BF}
 	EndGlobalSection
 EndGlobal

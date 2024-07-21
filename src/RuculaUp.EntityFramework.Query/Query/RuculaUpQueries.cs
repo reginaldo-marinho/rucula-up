@@ -1,6 +1,6 @@
 ﻿using RuculaX.Database.Query;
 
-namespace RuculaUp.Application;
+namespace RuculaUp.EntityFramework.Query;
 
 public class RuculaUpQueries : Queries
 {

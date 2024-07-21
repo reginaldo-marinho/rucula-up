@@ -1,6 +1,7 @@
 using RuculaUp.Application;
 using RuculaUp.Domain;
 using RuculaUp.EntityFramework;
+using RuculaUp.EntityFramework.Query;
 using RuculaX.Database.Query;
 using RuculaX.EntityFramework;
 

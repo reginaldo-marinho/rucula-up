@@ -16,6 +16,7 @@
   <ItemGroup>
     <ProjectReference Include="../RuculaUp.Application/RuculaUp.Application.csproj" />
     <ProjectReference Include="../RuculaUp.EntityFramework/RuculaUp.EntityFramework.csproj" />
+    <ProjectReference Include="../RuculaUp.EntityFramework.Query/RuculaUp.EntityFramework.Query.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,9 +1,9 @@
 ﻿using System.Text.Json;
 using Microsoft.EntityFrameworkCore;
-using RuculaUp.EntityFramework;
+using RuculaX.Database.Common;
 using RuculaX.Database.Query;
 
-namespace RuculaUp.Application;
+namespace RuculaUp.EntityFramework.Query;
 
 public class IntegranteQueryPaged : PaginationAsync, IQuery
 {
@@ -102,8 +102,8 @@ public class IntegranteQueryPaged : PaginationAsync, IQuery
         var options = JsonSerializer.Deserialize<IntegranteOption>(config.Options);
                 
         var integrantes =  await (from user in _context.IntegranteModel
-                .Where(c => String.Compare(c.Id,options.LastId) > 0 &&
-                            String.Compare(c.Nome,options.LastNome) >= 0 )
+                .Where(c => String.Compare(c.Id,options.LastId) > 0)
+                .WhereIf(config.Text.Length > 0, c => c.Nome.Contains(config.Text) || c.Id.Contains(config.Text))
                 .OrderBy(c => c.Id)
                 .ThenBy(c => c.Nome)
                 .Take(config.RowNumber)
@@ -132,8 +132,8 @@ public class IntegranteQueryPaged : PaginationAsync, IQuery
         var options = JsonSerializer.Deserialize<IntegranteOption>(config.Options);
                 
         var integrantes =  await (from user in _context.IntegranteModel
-                .Where(c => String.Compare(c.Id,options.LastId) < 0 &&
-                            String.Compare(c.Nome,options.LastNome) <= 0 )
+                .Where(c => String.Compare(c.Id,options.LastId) < 0)
+                .WhereIf(config.Text.Length > 0, c => c.Nome.Contains(config.Text) || c.Id.Contains(config.Text))
                 .OrderByDescending(c => c.Id)
                 .ThenByDescending(c => c.Nome)
                 .Take(config.RowNumber)
