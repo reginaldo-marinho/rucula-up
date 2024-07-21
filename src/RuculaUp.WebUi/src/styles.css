@@ -1,0 +1,8 @@
+body {
+    margin: 0;
+}
+
+.r-act-grid-body.tabulator {
+    background-color: inherit;
+    margin-top: 10px;
+}

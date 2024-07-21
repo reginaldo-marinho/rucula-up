@@ -1,0 +1,91 @@
+{
+    "name": "Integrantes",
+    "pathController": "/Integrante",
+    "type": "crud",
+    "crud": "crud",
+    "messageHome": "Integrantes ICPI",
+    "iconHome": "bi-rocket-takeoff",
+    "frames": [
+        {
+            "name": "Integrante",
+            "objectDto": "integrante",
+            "alias": "aliasIntegrante",
+            "vertical": false,
+            "fields": [
+                {
+                    "propertDto": "id",
+                    "description": "Identificação Interna"
+                },
+                {
+                    "propertDto": "nome",
+                    "description": "nome",
+                    "maxLength": 40,
+                    "requerid": true,
+                    "width": 450
+                },
+                {
+                    "propertDto": "telefoneCelular",
+                    "description": "Telefone Celular",
+                    "requerid": true
+                },
+                {
+                    "propertDto": "serveNaIgreja",
+                    "description": "Serve na igreja",
+                    "requerid": false,
+                    "type": ["checkbox", "bool"],
+                    "checkbox": {
+                        "on": true,
+                        "off": false
+                    },
+                    "groupFormat": "left"
+                },
+                {
+                    "propertDto": "batizado",
+                    "description": "batizado",
+                    "requerid": false,
+                    "type": ["checkbox", "bool"],
+                    "checkbox": {
+                        "on": true,
+                        "off": false
+                    },
+                    "groupFormat": "left"
+                },
+                {
+                    "propertDto": "estadoCivil",
+                    "description": "Estado Civil",
+                    "requerid": true,
+                    "type": ["select", "text"],
+                    "combo": [
+                        { "representation": "Casado", "value": 1 },
+                        { "representation": "Divorciado", "value": 2 },
+                        { "representation": "Separado", "value": 3 },
+                        { "representation": "Amasiado", "value": 4 }
+                    ],
+                    "width": 200
+                },
+                {
+                    "propertDto": "ministerio",
+                    "description": "Ministério",
+                    "requerid": false
+                }
+            ]
+        }
+    ],
+    "layout": {
+        "items": [
+            ["aliasIntegrante"]
+        ]
+    },
+    "button": [
+        {
+            "type": "button",
+            "target": "r-a-save",
+            "body": "."
+        },
+        {
+            "type": "button",
+            "target": "r-analise",
+            "text":"Analise 🚀"
+        }
+    ]
+}
