@@ -20,13 +20,11 @@
                     "propertDto": "nome",
                     "description": "nome",
                     "maxLength": 40,
-                    "requerid": true,
                     "width": 450
                 },
                 {
                     "propertDto": "telefoneCelular",
-                    "description": "Telefone Celular",
-                    "requerid": true
+                    "description": "Telefone Celular"
                 },
                 {
                     "propertDto": "serveNaIgreja",
@@ -81,6 +79,22 @@
             "type": "button",
             "target": "r-a-save",
             "body": "."
+        },
+        {
+            "type": "button",
+            "target": "r-a-alter",
+            "body": ".",
+            "URL":{
+                "params":"id={aliasIntegrante.id}"
+            }
+        },
+        {
+            "type": "button",
+            "target": "r-a-delete",
+            "body": ".",
+            "URL":{
+                "params":"id={aliasIntegrante.id}"
+            }
         },
         {
             "type": "button",

@@ -15,7 +15,7 @@ import { IntegranteGrid } from '../queryGrid/integranteGrid';
 })
 
 export class IntegranteComponent extends RuculaCrudManagment implements OnInit {
-
+   
     constructor(
       private http:HttpGenericService, 
       private tab:TabulatorService,
@@ -46,4 +46,11 @@ export class IntegranteComponent extends RuculaCrudManagment implements OnInit {
           })
         ) 
     } 
+
+    protected override alter(e: CustomEvent): void {
+    }
+
+    protected override delete(e: CustomEvent): void {
+    }
+
 }
