@@ -15,9 +15,28 @@ public class IntegranteController : ControllerBase
         _integranteService = integranteService;
     }
     
+    [HttpGet]
+    public async Task<IntegranteDto> Get(string id)
+    {
+        return await _integranteService.GetAsync(id);
+    }
+    
     [HttpPost]
     public async Task Post(IntegranteDto integrante)
     {
         await _integranteService.InsertAsync(integrante);
     }
+    
+    [HttpPut]
+    public async Task Put(IntegranteDto integrante)
+    {
+        await _integranteService.AlterAsync(integrante);
+    }
+
+    [HttpDelete]
+    public async Task Delete(string id)
+    {
+        await _integranteService.DeleteAsync(id);
+    }
 }
+

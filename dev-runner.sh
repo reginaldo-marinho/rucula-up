@@ -1,3 +1,3 @@
-dotnet run --project src/RuculaUp.WebApi/
+dotnet watch --project src/RuculaUp.WebApi/
 
 

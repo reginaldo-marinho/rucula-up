@@ -12,4 +12,10 @@ export class HttpGenericService {
   public post<T>(url:string, body:T):Observable<any>{
       return this.http.post(url,body)
   }
+  public put<T>(url:string, body:T):Observable<any>{
+    return this.http.put(url,body)
+  }
+  public delete(url:string):Observable<any>{
+    return this.http.delete(url)
+  }
 }

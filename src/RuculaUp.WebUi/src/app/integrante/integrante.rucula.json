@@ -83,18 +83,11 @@
         {
             "type": "button",
             "target": "r-a-alter",
-            "body": ".",
-            "URL":{
-                "params":"id={aliasIntegrante.id}"
-            }
+            "body": "."
         },
         {
             "type": "button",
-            "target": "r-a-delete",
-            "body": ".",
-            "URL":{
-                "params":"id={aliasIntegrante.id}"
-            }
+            "target": "r-a-delete"
         },
         {
             "type": "button",
