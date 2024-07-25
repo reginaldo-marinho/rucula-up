@@ -6,6 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B4F1F714-E52B-45F0-8E49-0A9660B8A4BF}"
 	ProjectSection(SolutionItems) = preProject
 		dev-runner.sh = dev-runner.sh
+		compose.yaml = compose.yaml
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RuculaIUp.WebApi", "src\RuculaUp.WebApi\RuculaIUp.WebApi.csproj", "{F9A8D039-4A88-4F2C-8FA2-658F064C00FF}"

@@ -1,0 +1,9 @@
+services:
+  rucula-web:
+    build:  ./src/RuculaUp.WebUi
+    ports:
+      - "9000:9000"
+
+
+    
+  
