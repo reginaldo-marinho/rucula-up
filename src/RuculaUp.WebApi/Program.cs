@@ -22,12 +22,7 @@ builder.Services.AddCors(options =>
             });
     });
 
-string connectionString = 
-    "Host=127.0.0.1;Database=Church;Username={USERNAME};Password={PASSWORD}"
-    .Replace("{USERNAME}",builder.Configuration["Church:Username"])
-    .Replace("{PASSWORD}",builder.Configuration["Church:Password"]); 
-
-builder.Services.AddPostgressContext(connectionString);
+builder.Services.AddPostgressContext(builder.Environment.EnvironmentName, builder.Configuration);
 
 builder.Services.AddScoped<UnitOfWorkAsync>();
 builder.Services.AddScoped<RepositoryCrudBaseAsync<Integrante, string>>();
