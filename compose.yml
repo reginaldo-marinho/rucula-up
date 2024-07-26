@@ -3,7 +3,39 @@ services:
     build:  ./src/RuculaUp.WebUi
     ports:
       - "9000:9000"
+    restart: always
+    networks:
+      - application
 
+  application:
+    build:
+      context: .
+    restart: always
+    env_file:
+      - path: /home/reginaldo-marinho/app.env 
+    ports:
+      - "5900:5900"
+    networks:
+      - application
+      - database
 
-    
-  
+  postgres:
+    image: postgres:12.17-alpine3.19
+    restart: always
+    hostname: HOST_POSTGRES
+    env_file:
+      - path: /home/reginaldo-marinho/db.env
+    environment:
+      PGDATA: /var/lib/postgresql/data/pgdata
+    ports:
+      - "1111:5432"
+    networks:
+      - database
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+networks:
+  application: {}
+  database: {}
+
+volumes:
+  postgres_data:
