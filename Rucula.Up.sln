@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B4F1F714-E52
 		compose.yaml = compose.yaml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RuculaIUp.WebApi", "src\RuculaUp.WebApi\RuculaIUp.WebApi.csproj", "{F9A8D039-4A88-4F2C-8FA2-658F064C00FF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RuculaUp.WebApi", "src\RuculaUp.WebApi\RuculaUp.WebApi.csproj", "{F9A8D039-4A88-4F2C-8FA2-658F064C00FF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RuculaUp.Application", "src\RuculaUp.Application\RuculaUp.Application.csproj", "{005D436A-1697-4D5C-B7E7-0561B8C5C5CB}"
 EndProject
