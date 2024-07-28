@@ -17,6 +17,5 @@ RUN dotnet publish -c release -o /publish --no-restore
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
 COPY --from=build /publish ./
-ENV ASPNETCORE_ENVIRONMENT=Development
 ENTRYPOINT ["dotnet", "RuculaUp.WebApi.dll", "--urls", "http://*:5900"]
 EXPOSE 5900

@@ -13,6 +13,8 @@ services:
     restart: always
     env_file:
       - path: /home/reginaldo-marinho/app.env 
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
     ports:
       - "5900:5900"
     networks:
