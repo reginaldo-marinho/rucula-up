@@ -12,16 +12,16 @@ public static class Postgress
         
         if(environment == "Production")
         {
-            connectionString = "Host={DB_HOST};Database={DB_DATABASE};Username={DB_USER};Password={DB_PASSWORD}"
-            .Replace("DB_HOST", Environment.GetEnvironmentVariable("DB_HOST"))
-            .Replace("DB_DATABASE", Environment.GetEnvironmentVariable("DB_DATABASE"))
-            .Replace("DB_USER", Environment.GetEnvironmentVariable("DB_USER"))
-            .Replace("DB_PASSWORD", Environment.GetEnvironmentVariable("DB_PASSWORD"));
+            connectionString = 
+                "Host={DB_HOST};Database=rucula_prd;Username={DB_USER};Password={DB_PASSWORD}"
+                .Replace("{DB_HOST}", Environment.GetEnvironmentVariable("DB_HOST"))
+                .Replace("{DB_USER}", Environment.GetEnvironmentVariable("DB_USER"))
+                .Replace("{DB_PASSWORD}", Environment.GetEnvironmentVariable("DB_PASSWORD"));
         }
         
         if(environment == "Development")
         {
-            connectionString = "Host=127.0.0.1;Database=Church;Username={USERNAME};Password={PASSWORD}"
+            connectionString = "Host=127.0.0.1;Database=rucula_dev;;Username={USERNAME};Password={PASSWORD}"
             .Replace("{USERNAME}",configurationManager["Church:Username"])
             .Replace("{PASSWORD}",configurationManager["Church:Password"]); 
         }
