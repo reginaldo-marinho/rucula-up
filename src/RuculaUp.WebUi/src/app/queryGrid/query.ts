@@ -61,7 +61,7 @@ export abstract class Query {
         
     protected dataGrid(){
         
-        this.http.post<any>(this.gridConfig.URL, this.inputOptions)
+        this.http.post<any>(this.url(), this.inputOptions)
         .subscribe(result => {
 
           this.inputOptions.options = result.options
@@ -71,10 +71,12 @@ export abstract class Query {
             data: result.data
           })
 
+          tabulator.on('rowClick',(e, row) => this.setData(e,row))
         });
     }
 
-    protected abstract setData(e:any):void;
+    protected abstract setData(e:any, row:any):void;
+    protected abstract url():string;
 
 }
 
@@ -93,9 +95,7 @@ export interface QueryInit{
 
 
 export type gridConfig = {
-    URL: string
     columns: any
     inputConfig: any
-    
 }
 

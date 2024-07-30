@@ -37,34 +37,29 @@ export class IntegranteComponent extends RuculaCrudManagment implements OnInit {
     
     protected override save(e: CustomEvent): void {      
 
-      this.http.post<Integrante>(e.detail.url+'/Integrante',e.detail.body)
+      this.http.post<Integrante>(e.detail.url,e.detail.body)
         .subscribe(() => 
           this.rucula.popup.messsage.sucess({
-            text:'Integrante Registrado 👍🏻😃',
-            disableadFooter:true,
-            timeout:2000
+            text:'Integrante Registrado 👍🏻😃'
           })
         ) 
     } 
 
     protected override alter(e: CustomEvent): void {
-      this.http.put<Integrante>(e.detail.url+'/Integrante',e.detail.body)
+      this.http.put<Integrante>(e.detail.url,e.detail.body)
         .subscribe(() => 
           this.rucula.popup.messsage.sucess({
             text:'Integrante Alterado 👍🏻😃',
-            disableadFooter:true,
-            timeout:2000
           })
         ) 
     }
 
     protected override delete(e: CustomEvent): void {
-      this.http.delete(e.detail.url+`/Integrante?id=${this.rucula.object.getValue('aliasIntegrante.id')}`)
+      this.http.delete(e.detail.url)
         .subscribe(() => 
           this.rucula.popup.messsage.sucess({
-            text:'Integrante Removido 👍🏻😃',
-            disableadFooter:true,
-            timeout:2000
+            text:'Integrante Removido 👍🏻😃'
+
           })
         ) 
     }

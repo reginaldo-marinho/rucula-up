@@ -18,4 +18,7 @@ export class HttpGenericService {
   public delete(url:string):Observable<any>{
     return this.http.delete(url)
   }
+  public get(url:string):Observable<any>{
+    return this.http.get(url)
+  }
 }

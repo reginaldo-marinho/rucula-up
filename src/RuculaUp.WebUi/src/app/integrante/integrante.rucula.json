@@ -78,16 +78,26 @@
         {
             "type": "button",
             "target": "r-a-save",
-            "body": "."
+            "body": ".",
+            "URL":{
+                "relative":"Integrante"
+            }
         },
         {
             "type": "button",
             "target": "r-a-alter",
-            "body": "."
+            "body": ".",
+            "URL":{
+                "relative":"Integrante"
+            }
         },
         {
             "type": "button",
-            "target": "r-a-delete"
+            "target": "r-a-delete",
+            "URL":{
+                "relative":"Integrante",
+                "params":"id={aliasIntegrante.id}"
+            }
         },
         {
             "type": "button",

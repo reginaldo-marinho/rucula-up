@@ -5,6 +5,11 @@
         env: "development",
         hostname: "http://localhost",
         port: "5270"
+      },
+      {
+        env: "production",
+        hostname: "http://localhost",
+        port: "5900"
       }
     ],
     localizations: [
