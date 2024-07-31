@@ -10,6 +10,22 @@ public static class Postgress
     {
         string connectionString = "";
         
+        if(environment == "Development")
+        {
+            connectionString = "Host=127.0.0.1;Database=Church;;Username={USERNAME};Password={PASSWORD}"
+            .Replace("{USERNAME}",configurationManager["Church:Username"])
+            .Replace("{PASSWORD}",configurationManager["Church:Password"]); 
+        }
+
+        if(environment == "Staging")
+        {
+            connectionString = 
+            "Host={DB_HOST};Database=rucula_hom;Username={DB_USER};Password={DB_PASSWORD}"
+                .Replace("{DB_HOST}", Environment.GetEnvironmentVariable("DB_HOST"))
+                .Replace("{DB_USER}", Environment.GetEnvironmentVariable("DB_USER"))
+                .Replace("{DB_PASSWORD}", Environment.GetEnvironmentVariable("DB_PASSWORD"));
+        }
+
         if(environment == "Production")
         {
             connectionString = 
@@ -19,12 +35,6 @@ public static class Postgress
                 .Replace("{DB_PASSWORD}", Environment.GetEnvironmentVariable("DB_PASSWORD"));
         }
         
-        if(environment == "Development")
-        {
-            connectionString = "Host=127.0.0.1;Database=rucula_dev;;Username={USERNAME};Password={PASSWORD}"
-            .Replace("{USERNAME}",configurationManager["Church:Username"])
-            .Replace("{PASSWORD}",configurationManager["Church:Password"]); 
-        }
         
         services.AddDbContext<DbContext,ApplicationContext>(options =>
                 options.UseNpgsql(connectionString));
