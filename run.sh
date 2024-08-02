@@ -70,7 +70,6 @@ function exec_docker(){
     return 
 }
 
-echo $PROJECT_NAME_LOWER
 case "$1" in
     "docker")
         exec_docker $2
