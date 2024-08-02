@@ -1,12 +1,4 @@
 services:
-  rucula-web:
-    build:  ./src/RuculaUp.WebUi
-    ports:
-      - "9000:9000"
-    restart: always
-    networks:
-      - application
-
   application:
     build:
       context: .
@@ -14,13 +6,12 @@ services:
     env_file:
       - path: /home/reginaldo-marinho/app.env 
     environment:
-      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_ENVIRONMENT=${ENVIRONMENT}
     ports:
-      - "5900:5900"
+      - "${PORT_APP}:5900"
     networks:
       - application
       - database
-
   postgres:
     image: postgres:12.17-alpine3.19
     restart: always
@@ -30,7 +21,7 @@ services:
     environment:
       PGDATA: /var/lib/postgresql/data/pgdata
     ports:
-      - "1111:5432"
+      - "${PORT_DB}:5432"
     networks:
       - database
     volumes:
