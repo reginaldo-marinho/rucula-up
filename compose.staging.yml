@@ -6,29 +6,28 @@ services:
     env_file:
       - path: /home/reginaldo-marinho/app.env 
     environment:
-      - ASPNETCORE_ENVIRONMENT=${ENVIRONMENT}
+      - ASPNETCORE_ENVIRONMENT=Staging
     ports:
-      - "${PORT_APP}:5900"
+      - "4900:5900"
     networks:
-      - application
-      - database
+      - application_staging
+      - database_staging
   postgres:
     image: postgres:12.17-alpine3.19
+    container_name: postgres_staging
     restart: always
-    hostname: HOST_POSTGRES
+    hostname: DB_STAGING
     env_file:
       - path: /home/reginaldo-marinho/db.env
     environment:
       PGDATA: /var/lib/postgresql/data/pgdata
-    ports:
-      - "${PORT_DB}:5432"
     networks:
-      - database
+      - database_staging
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - postgres_rucula_up_staging:/var/lib/postgresql/data
 networks:
-  application: {}
-  database: {}
+  application_staging: {}
+  database_staging: {}
 
 volumes:
-  postgres_data:
+  postgres_rucula_up_staging:

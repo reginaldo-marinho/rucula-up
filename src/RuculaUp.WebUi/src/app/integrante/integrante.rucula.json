@@ -23,6 +23,11 @@
                     "width": 450
                 },
                 {
+                    "propertDto": "dataNascimento",
+                    "description": "Data Nascimento",
+                    "type":"date"
+                },
+                {
                     "propertDto": "telefoneCelular",
                     "description": "Telefone Celular"
                 },
@@ -67,11 +72,36 @@
                     "requerid": false
                 }
             ]
+        },
+        {
+            "name": "Endereco",
+            "objectDto": "endereco",
+            "alias": "aliasEndereco",
+            "vertical": false,
+            "fields": [
+                {
+                    "propertDto": "rua",
+                    "description": "Rua",
+                    "width": 600,
+                    "maxLength":600
+
+                },
+                {
+                    "propertDto": "bairro",
+                    "description": "Bairro"
+                },
+                {
+                    "propertDto": "cidade",
+                    "description": "Cidade"
+                }
+
+            ]
         }
     ],
     "layout": {
         "items": [
-            ["aliasIntegrante"]
+            ["aliasIntegrante"],
+            ["aliasEndereco"]
         ]
     },
     "button": [

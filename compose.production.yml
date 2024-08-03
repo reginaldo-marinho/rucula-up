@@ -1,0 +1,33 @@
+services:
+  application:
+    build:
+      context: .
+    restart: always
+    env_file:
+      - path: /home/reginaldo-marinho/app.env 
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+    ports:
+      - "5900:5900"
+    networks:
+      - application_production
+      - database_production
+  postgres:
+    container_name: postgres_production
+    image: postgres:12.17-alpine3.19
+    restart: always
+    hostname: DB_PRODUCTION
+    env_file:
+      - path: /home/reginaldo-marinho/db.env
+    environment:
+      PGDATA: /var/lib/postgresql/data/pgdata
+    networks:
+      - database_production
+    volumes:
+      - postgres_rucula_up_production:/var/lib/postgresql/data
+networks:
+  application_production: {}
+  database_production: {}
+  
+volumes:
+  postgres_rucula_up_production:

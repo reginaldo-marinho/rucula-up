@@ -20,7 +20,7 @@ public static class Postgress
         if(environment == "Staging")
         {
             connectionString = 
-            "Host={DB_HOST};Database=rucula_hom;Username={DB_USER};Password={DB_PASSWORD}"
+            "Host=DB_STAGING;Database=rucula_hom;Username={DB_USER};Password={DB_PASSWORD}"
                 .Replace("{DB_HOST}", Environment.GetEnvironmentVariable("DB_HOST"))
                 .Replace("{DB_USER}", Environment.GetEnvironmentVariable("DB_USER"))
                 .Replace("{DB_PASSWORD}", Environment.GetEnvironmentVariable("DB_PASSWORD"));
@@ -29,7 +29,7 @@ public static class Postgress
         if(environment == "Production")
         {
             connectionString = 
-                "Host={DB_HOST};Database=rucula_prd;Username={DB_USER};Password={DB_PASSWORD}"
+                "Host=DB_PRODUCTION;Database=rucula_prd;Username={DB_USER};Password={DB_PASSWORD}"
                 .Replace("{DB_HOST}", Environment.GetEnvironmentVariable("DB_HOST"))
                 .Replace("{DB_USER}", Environment.GetEnvironmentVariable("DB_USER"))
                 .Replace("{DB_PASSWORD}", Environment.GetEnvironmentVariable("DB_PASSWORD"));
