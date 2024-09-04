@@ -26,8 +26,8 @@
             ],
             "styles": [
               "src/styles.css",
-              "node_modules/@reginaldo-marinho/rucula-js/dist/style/normalize.css",
-              "node_modules/@reginaldo-marinho/rucula-js/dist/style/style.css",
+              "node_modules/@reginaldo-marinho/dist/style/normalize.css",
+              "node_modules/@reginaldo-marinho/dist/style/style.css",
               "node_modules/tabulator-tables/dist/css/tabulator.min.css"
 
             ],
@@ -93,8 +93,8 @@
             ],
             "styles": [
               "src/styles.css",
-              "node_modules/@reginaldo-marinho/rucula-js/dist/style/normalize.css",
-              "node_modules/@reginaldo-marinho/rucula-js/dist/style/style.css",
+              "node_modules/@reginaldo-marinho/dist/style/normalize.css",
+              "node_modules/@reginaldo-marinho/dist/style/style.css",
               "node_modules/tabulator-tables/dist/css/tabulator.min.css"
             ],
             "scripts": [

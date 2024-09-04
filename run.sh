@@ -17,8 +17,9 @@ function exec_docker(){
 
     echo
     echo "Entrar em.."
-    echo "(2) Homologação"
-    echo "(3) Produção"
+    echo "(1) 🧠🧠 Desenvolvimento - Crie, Altere ou exclua funcionalidades."
+    echo "(2) ⭐⭐ Homologação - Teste o que criou com dados mais precisos, mas que não tenha valor comercial para o contexto."
+    echo "(3) 🔥🔥 Produção - Dados reais do negócio."
     echo "(0) Sair "
     
     OPT=""
@@ -33,6 +34,10 @@ function exec_docker(){
     
     create_ui
 
+    if [ $OPT = "1" ]; then
+        docker compose -f compose.development.yml -p rucula_development up -d
+    fi
+    
     if [ $OPT = "2" ]; then
         docker compose -f compose.staging.yml -p rucula_staging up -d
     fi

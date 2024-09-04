@@ -133,6 +133,11 @@
             "type": "button",
             "target": "r-analise",
             "text":"Analise 🚀"
+        },
+        {
+            "type": "button",
+            "target": "r-composicao",
+            "text":"Composição"
         }
     ]
 }

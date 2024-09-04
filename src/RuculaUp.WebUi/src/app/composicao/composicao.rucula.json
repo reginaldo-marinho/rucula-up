@@ -1,0 +1,21 @@
+{
+    "name": "Integrantes",
+    "pathController": "/Integrante",
+    "type": "crud",
+    "messageHome": "Analise Integrantes",
+    "grid":false,
+    "iconHome": "bi-bar-chart",
+    "frames": [
+        {
+            "name": "Composicao",
+            "objectDto": "composicao",
+            "alias": "aliasComposicao"
+        }
+        
+    ],
+    "layout": {
+        "items": [
+            ["aliasComposicao"]
+        ]
+    }
+}

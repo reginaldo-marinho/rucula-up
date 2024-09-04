@@ -1,4 +1,4 @@
-import { Rucula } from "@reginaldo-marinho/rucula-js";
+import { Rucula } from "@reginaldo-marinho/dist/Rucula";
 import { TabulatorService } from "../tabulator/tabulator.service";
 import { HttpGenericService } from "../http-generic/http-generic.service";
 

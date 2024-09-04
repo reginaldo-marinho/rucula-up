@@ -1,4 +1,4 @@
-import { Rucula } from "@reginaldo-marinho/rucula-js";
+import { Rucula } from "@reginaldo-marinho/dist/Rucula";
 import { Query, QueryInit,gridConfig } from "./query";
 import { HttpGenericService } from "../http-generic/http-generic.service";
 import { TabulatorService } from "../tabulator/tabulator.service";
@@ -22,6 +22,7 @@ export class IntegranteGrid extends Query implements QueryInit {
     }
     
     init(): void {
+      this.rucula.create()
       this.dataGrid()
     }
             
@@ -42,13 +43,13 @@ export class IntegranteGrid extends Query implements QueryInit {
 
       this.http.get(url).subscribe(integrante => {
         
-        this.rucula.object.setValue(propert('id'), integrante.id);
-        this.rucula.object.setValue(propert('nome'), integrante.nome);
-        this.rucula.object.setValue(propert('telefoneCelular'), integrante.telefoneCelular);
-        this.rucula.object.setValue(propert('serveNaIgreja'), integrante.serveNaIgreja);
-        this.rucula.object.setValue(propert('batizado'), integrante.batizado);
-        this.rucula.object.setValue(propert('estadoCivil'), integrante.estadoCivil);
-        this.rucula.object.setValue(propert('ministerio'), integrante.ministerio);
+        this.rucula.setValue(propert('id'), integrante.id);
+        this.rucula.setValue(propert('nome'), integrante.nome);
+        this.rucula.setValue(propert('telefoneCelular'), integrante.telefoneCelular);
+        this.rucula.setValue(propert('serveNaIgreja'), integrante.serveNaIgreja);
+        this.rucula.setValue(propert('batizado'), integrante.batizado);
+        this.rucula.setValue(propert('estadoCivil'), integrante.estadoCivil);
+        this.rucula.setValue(propert('ministerio'), integrante.ministerio);
      
       })
 

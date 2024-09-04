@@ -19,6 +19,8 @@
     "@angular/platform-browser-dynamic": "^16.2.0",
     "@angular/router": "^16.2.0",
     "@reginaldo-marinho/rucula-js": "^0.0.59",
+    "@types/echarts": "^4.9.22",
+    "echarts": "^5.5.1",
     "jquery": "^3.7.1",
     "rxjs": "~7.8.0",
     "tabulator-tables": "^6.2.1",
