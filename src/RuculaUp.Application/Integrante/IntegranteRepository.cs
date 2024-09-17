@@ -1,4 +1,5 @@
 ﻿using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore;
 using RuculaUp.Domain;
 using RuculaX.EntityFramework;
 
@@ -21,7 +22,13 @@ public class IntegranteRepository : RepositoryCrudMApAsync<Integrante, Integrant
             EstadoCivil = inputDto.EstadoCivil,
             ServeNaIgreja = inputDto.ServeNaIgreja,
             Ministerio = inputDto.Ministerio,
-            TelefoneCelular = inputDto.TelefoneCelular
+            TelefoneCelular = inputDto.TelefoneCelular,
+            Endereco = new Endereco {
+                  Id = inputDto.Id,
+                  Rua = inputDto.Endereco.Rua,
+                  Bairro = inputDto.Endereco.Bairro,
+                  Cidade = inputDto.Endereco.Cidade,
+            }
         };
 
         await Repository.InsertAsync(integrante);
@@ -38,7 +45,12 @@ public class IntegranteRepository : RepositoryCrudMApAsync<Integrante, Integrant
             EstadoCivil = inputDto.EstadoCivil,
             ServeNaIgreja = inputDto.ServeNaIgreja,
             Ministerio = inputDto.Ministerio,
-            TelefoneCelular = inputDto.TelefoneCelular
+            TelefoneCelular = inputDto.TelefoneCelular,
+                        Endereco = new Endereco {
+                  Rua = inputDto.Endereco.Rua,
+                  Bairro = inputDto.Endereco.Bairro,
+                  Cidade = inputDto.Endereco.Cidade,
+            }
         };
 
         await Repository.AlterAsync(integrante);
@@ -63,11 +75,13 @@ public class IntegranteRepository : RepositoryCrudMApAsync<Integrante, Integrant
         throw new NotImplementedException();
     }
 
-    public async override Task<IntegranteDto> GetAsync(Integrante input, CancellationToken token)
+    public async override Task<IntegranteDto> GetAsync(Integrante input, CancellationToken token = default)
     {
-        var result = await this.Repository.GetAsync(input);
         
+        var config = this.Repository.DbSet.Include(c=> c.Endereco);
 
+        var result = await this.Repository.GetAsync(input,config);
+        
         IntegranteDto integrante = new() 
         {
             Id = result.Id,
@@ -77,13 +91,19 @@ public class IntegranteRepository : RepositoryCrudMApAsync<Integrante, Integrant
             EstadoCivil = result.EstadoCivil,
             ServeNaIgreja = result.ServeNaIgreja,
             Ministerio = result.Ministerio,
-            TelefoneCelular = result.TelefoneCelular
+            TelefoneCelular = result.TelefoneCelular,
+            Endereco = new EnderecoDto(){
+                 
+                  Rua = result.Endereco.Rua,
+                  Bairro = result.Endereco.Bairro,
+                  Cidade = result.Endereco.Cidade
+            }
         };
 
         return integrante;
     }
 
-    public override Task<IntegranteDto> GetAsync(Expression<Func<Integrante, bool>> predicate, CancellationToken token)
+    public override Task<IntegranteDto> GetAsync(Expression<Func<Integrante, bool>> predicate,  CancellationToken token = default)
     {
         throw new NotImplementedException();
     }

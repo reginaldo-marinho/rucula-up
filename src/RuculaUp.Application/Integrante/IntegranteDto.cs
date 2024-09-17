@@ -12,4 +12,5 @@ public record IntegranteDto: IEntityDto
     public bool ServeNaIgreja { get; set; }
     public string Ministerio { get; set; }
     public string TelefoneCelular { get; set; }
+    public EnderecoDto Endereco { get; set; }
 }

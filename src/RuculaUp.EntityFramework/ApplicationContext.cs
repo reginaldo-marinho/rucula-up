@@ -10,6 +10,7 @@ public class ApplicationContext : DbContext
     {
     }
 
-    public DbSet<Integrante> IntegranteModel {get;set;} 
+    public DbSet<Integrante> Integrante {get;set;}     
+    
     
 }

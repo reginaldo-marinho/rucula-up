@@ -11,5 +11,6 @@ public class Integrante : Entity<string>
     public bool ServeNaIgreja { get;  set; }
     public string Ministerio { get;  set; }
     public string TelefoneCelular { get;  set; }
-    
+    public Endereco Endereco { get;  set; }    
+
 }

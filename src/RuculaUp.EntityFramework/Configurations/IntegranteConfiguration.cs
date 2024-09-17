@@ -1,11 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using RuculaUp.Domain;
+using RuculaX.Domain;
 
 namespace RuculaUp.EntityFramework;
 
-public class IntegranteModelConfiguration : IEntityTypeConfiguration<IntegranteModel>
+public class IntegranteConfiguration : IEntityTypeConfiguration<Integrante>
 {
-    public void Configure(EntityTypeBuilder<IntegranteModel> builder)
+    public void Configure(EntityTypeBuilder<Integrante> builder)
     {
         builder.Property(c => c.Nome).HasMaxLength(40).IsRequired();
         builder.Property(c => c.DataDeNascimento).IsRequired();
@@ -14,5 +16,13 @@ public class IntegranteModelConfiguration : IEntityTypeConfiguration<IntegranteM
         builder.Property(c => c.ServeNaIgreja).IsRequired();
         builder.Property(c => c.Ministerio).HasMaxLength(40).IsRequired(false);
         builder.Property(c => c.TelefoneCelular).HasMaxLength(11).IsRequired();   
+
+        builder.Navigation(c=> c.Endereco).EnableLazyLoading(false);
+
+        builder.OwnsOne(p => p.Endereco, inte => {
+            inte.HasKey(c=> c.Id).HasName("Endereco_PK");            
+            inte.WithOwner().HasForeignKey(p => p.Id);
+        });
     }
+
 }

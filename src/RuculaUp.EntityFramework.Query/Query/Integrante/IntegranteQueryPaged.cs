@@ -22,7 +22,7 @@ public class IntegranteQueryPaged : PaginationAsync, IQuery
     {
         var options = JsonSerializer.Deserialize<IntegranteOption>(config.Options);
                 
-        var integrantes =  await (from user in _context.IntegranteModel
+        var integrantes =  await (from user in _context.Integrante
                 .Where(c => c.Id.Contains(config.Text)  || c.Nome.Contains(config.Text) )
                 .OrderBy(c => c.Id)
                 .Take(config.RowNumber)
@@ -48,7 +48,7 @@ public class IntegranteQueryPaged : PaginationAsync, IQuery
     {
         var options = JsonSerializer.Deserialize<IntegranteOption>(config.Options);
                 
-        var integrantes =  await (from user in _context.IntegranteModel
+        var integrantes =  await (from user in _context.Integrante
                 .OrderBy(c => c.Id)
                 .ThenBy(c => c.Nome)
                 .Take(config.RowNumber)
@@ -74,7 +74,7 @@ public class IntegranteQueryPaged : PaginationAsync, IQuery
     {
         var options = JsonSerializer.Deserialize<IntegranteOption>(config.Options);
                 
-         var integrantes =  await (from user in _context.IntegranteModel
+         var integrantes =  await (from user in _context.Integrante
                 .OrderByDescending(c => c.Id)
                 .ThenByDescending(c => c.Nome)
                 .Take(config.RowNumber)
@@ -101,7 +101,7 @@ public class IntegranteQueryPaged : PaginationAsync, IQuery
     {
         var options = JsonSerializer.Deserialize<IntegranteOption>(config.Options);
                 
-        var integrantes =  await (from user in _context.IntegranteModel
+        var integrantes =  await (from user in _context.Integrante
                 .Where(c => String.Compare(c.Id,options.LastId) > 0)
                 .WhereIf(config.Text.Length > 0, c => c.Nome.Contains(config.Text) || c.Id.Contains(config.Text))
                 .OrderBy(c => c.Id)
@@ -131,7 +131,7 @@ public class IntegranteQueryPaged : PaginationAsync, IQuery
     {
         var options = JsonSerializer.Deserialize<IntegranteOption>(config.Options);
                 
-        var integrantes =  await (from user in _context.IntegranteModel
+        var integrantes =  await (from user in _context.Integrante
                 .Where(c => String.Compare(c.Id,options.LastId) < 0)
                 .WhereIf(config.Text.Length > 0, c => c.Nome.Contains(config.Text) || c.Id.Contains(config.Text))
                 .OrderByDescending(c => c.Id)

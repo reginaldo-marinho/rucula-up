@@ -6,15 +6,14 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using RuculaUp.EntityFramework;
-using RuculaX.EntityFramework;
 
 #nullable disable
 
-namespace RuculaX.EntityFramework.Migrations
+namespace RuculaUp.EntityFramework.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20240625012657_IniciandoIntegrante")]
-    partial class IniciandoIntegrante
+    [Migration("20240916113008_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -26,7 +25,29 @@ namespace RuculaX.EntityFramework.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("RuculaX.EntityFramework.IntegranteModel", b =>
+            modelBuilder.Entity("RuculaUp.Domain.Endereco", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Bairro")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Cidade")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Rua")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Endereco");
+                });
+
+            modelBuilder.Entity("RuculaUp.Domain.Integrante", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("text");
@@ -36,6 +57,10 @@ namespace RuculaX.EntityFramework.Migrations
 
                     b.Property<DateTime>("DataDeNascimento")
                         .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("EnderecoId")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<byte>("EstadoCivil")
                         .HasColumnType("smallint");
@@ -57,7 +82,20 @@ namespace RuculaX.EntityFramework.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("IntegranteModel");
+                    b.HasIndex("EnderecoId");
+
+                    b.ToTable("Integrante");
+                });
+
+            modelBuilder.Entity("RuculaUp.Domain.Integrante", b =>
+                {
+                    b.HasOne("RuculaUp.Domain.Endereco", "Endereco")
+                        .WithMany()
+                        .HasForeignKey("EnderecoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Endereco");
                 });
 #pragma warning restore 612, 618
         }

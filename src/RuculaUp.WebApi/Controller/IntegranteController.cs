@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using RuculaUp.Application;
+using RuculaUp.EntityFramework;
 
 
 namespace RuculaX.WebApi;
@@ -10,15 +12,18 @@ public class IntegranteController : ControllerBase
 {
     IIntegranteApplicationService _integranteService;
 
-    public IntegranteController(IIntegranteApplicationService integranteService)
+    ApplicationContext ctx;
+    public IntegranteController(IIntegranteApplicationService integranteService, ApplicationContext context)
     {
         _integranteService = integranteService;
+        ctx = context;
     }
     
     [HttpGet]
     public async Task<IntegranteDto> Get(string id)
     {
-        return await _integranteService.GetAsync(id);
+        var result = await _integranteService.GetAsync(id);
+        return result;
     }
     
     [HttpPost]
