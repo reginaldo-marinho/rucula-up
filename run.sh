@@ -49,12 +49,51 @@ function exec_docker(){
     return 
 }
 
+
+function exec_entity(){
+    echo ""
+    echo "(1) Adicionar Migração"
+    echo "(2) Adicionar Migração(Script) | Ideal para Produção 🔥🔥"
+    echo "(3) Remover Migração"
+    echo "(4) Update Database"
+    echo "(0) Sair"
+
+     OPT=""
+    
+    while ! [[ $OPT = "1" || $OPT = "2" || $OPT = "3" || $OPT = "4" ]]; do
+        read OPT
+        if [ $OPT = "0" ]; then
+            echo "Saindo..."
+            exit 0
+        fi
+    done 
+
+    if [ $OPT = "1" ]; then
+        echo "Nome da Migração"
+        read NAME_MIGRATION
+        dotnet ef migrations add  --project ./src/RuculaUp.EntityFramework  --startup-project ./src/RuculaUp.WebApi/ $NAME_MIGRATION
+    fi
+    if [ $OPT = "2" ]; then
+        dotnet ef migrations script  --project ./src/RuculaUp.EntityFramework  --startup-project ./src/RuculaUp.WebApi/
+    fi
+
+    if [ $OPT = "3" ]; then
+        dotnet ef migrations remove  --project ./src/RuculaUp.EntityFramework  --startup-project ./src/RuculaUp.WebApi/
+    fi
+    if [ $OPT = "4" ]; then
+        dotnet ef database update  --project ./src/RuculaUp.EntityFramework  --startup-project ./src/RuculaUp.WebApi/
+    fi
+}
+
 case "$1" in
     "docker")
         exec_docker $2
     ;;
     "dotnet")
         dotnet run --project src/RuculaUp.WebApi/
+    ;;
+    "ef")
+        exec_entity
     ;;
     *)
     return 1
