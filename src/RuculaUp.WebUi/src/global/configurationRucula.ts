@@ -2,6 +2,12 @@
     floatLabel: true,
     environments: [
       {
+        env: "development",
+        description:"Desenvolvimento",
+        hostname: "http://localhost",
+        port: "5270"
+      },
+      {
         env: "staging",
         description:"Homologação",
         hostname: "http://localhost",

@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
 using RuculaUp.Application;
-using RuculaUp.EntityFramework;
+using RuculaUp.Application.Command;
+using RuculaUp.Application.Query;
 
 
 namespace RuculaX.WebApi;
@@ -10,38 +11,51 @@ namespace RuculaX.WebApi;
 [Route("[controller]")]
 public class IntegranteController : ControllerBase
 {
-    IIntegranteApplicationService _integranteService;
-
-    ApplicationContext ctx;
-    public IntegranteController(IIntegranteApplicationService integranteService, ApplicationContext context)
+    IMediator _mediator;
+    public IntegranteController(IMediator mediator)
     {
-        _integranteService = integranteService;
-        ctx = context;
+        _mediator = mediator;
     }
     
     [HttpGet]
     public async Task<IntegranteDto> Get(string id)
     {
-        var result = await _integranteService.GetAsync(id);
+        var query = new IntegranteQueryGet { 
+            Id = id
+        };
+        
+        var result = await _mediator.Send(query);
+        
         return result;
     }
     
     [HttpPost]
     public async Task Post(IntegranteDto integrante)
     {
-        await _integranteService.InsertAsync(integrante);
+        var command = new IntegranteInsertCommand { 
+            IntegranteDto = integrante
+        };
+        
+        await _mediator.Send(command);
     }
-    
+
     [HttpPut]
     public async Task Put(IntegranteDto integrante)
     {
-        await _integranteService.AlterAsync(integrante);
+        var command = new IntegranteAlterCommand { 
+            IntegranteDto = integrante
+        };
+
+        await _mediator.Send(command);
     }
 
     [HttpDelete]
     public async Task Delete(string id)
     {
-        await _integranteService.DeleteAsync(id);
+        var command = new IntegranteDeleteCommand { 
+            Id = id
+        };
+        await _mediator.Send(command);    
     }
 }
 

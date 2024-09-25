@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="RuculaX.Database" Version="1.2.2" />
+    <PackageReference Include="RuculaX.Database" Version="1.2.4" />
   </ItemGroup>
 
   <ItemGroup>

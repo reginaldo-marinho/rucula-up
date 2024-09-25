@@ -78,6 +78,7 @@
             "objectDto": "endereco",
             "alias": "aliasEndereco",
             "vertical": false,
+            "parent":".",
             "fields": [
                 {
                     "propertDto": "rua",

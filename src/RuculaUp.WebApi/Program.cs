@@ -1,4 +1,5 @@
 using RuculaUp.Application;
+using RuculaUp.Application.Command;
 using RuculaUp.Domain;
 using RuculaUp.EntityFramework;
 using RuculaUp.EntityFramework.Query;
@@ -24,11 +25,10 @@ builder.Services.AddCors(options =>
 
 builder.Services.AddPostgressContext(builder.Environment.EnvironmentName, builder.Configuration);
 
-builder.Services.AddScoped<UnitOfWorkAsync>();
-builder.Services.AddScoped<RepositoryCrudBaseAsync<Integrante, string>>();
-builder.Services.AddScoped<IntegranteRepository>();
-builder.Services.AddScoped<IIntegranteApplicationService,IntegranteApplicationService>();
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(IntegranteCommand).Assembly));
 
+builder.Services.AddScoped<UnitOfWorkAsync>();
+builder.Services.AddScoped<IntegranteRepository>();
 builder.Services.AddSingleton<IQueries,RuculaUpQueries>();
 builder.Services.AddScoped<FactoryQuery<ApplicationContext>>();
 
