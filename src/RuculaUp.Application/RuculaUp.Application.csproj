@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="../RuculaUp.EntityFramework/RuculaUp.EntityFramework.csproj" />
+    <ProjectReference Include="..\RuculaUp.Dapper\RuculaUp.Dapper.csproj" />
   </ItemGroup>
 
   <ItemGroup>

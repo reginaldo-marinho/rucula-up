@@ -1,8 +1,9 @@
 using RuculaUp.Application;
 using RuculaUp.Application.Command;
-using RuculaUp.Domain;
+using RuculaUp.Dapper;
 using RuculaUp.EntityFramework;
 using RuculaUp.EntityFramework.Query;
+using RuculaUp.WebApi;
 using RuculaX.Database.Query;
 using RuculaX.EntityFramework;
 
@@ -23,9 +24,16 @@ builder.Services.AddCors(options =>
             });
     });
 
-builder.Services.AddPostgressContext(builder.Environment.EnvironmentName, builder.Configuration);
+var environment = builder.Environment.EnvironmentName;
+var configuration = builder.Configuration;
 
+var connectionStringPostgres = new ConnectionStringPostgres(environment,configuration).ConnectionString;
+
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(DapperConnectionString).Assembly));
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(IntegranteCommand).Assembly));
+
+builder.Services.AddPostgressContext(connectionStringPostgres);
+builder.Services.AddDapper(connectionStringPostgres);
 
 builder.Services.AddScoped<UnitOfWorkAsync>();
 builder.Services.AddScoped<IntegranteRepository>();

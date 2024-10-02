@@ -23,7 +23,7 @@
                     "width": 450
                 },
                 {
-                    "propertDto": "dataNascimento",
+                    "propertDto": "dataDeNascimento",
                     "description": "Data Nascimento",
                     "type":"date"
                 },
@@ -69,7 +69,32 @@
                 {
                     "propertDto": "ministerio",
                     "description": "Ministério",
-                    "requerid": false
+                    "requerid": false,
+                    "type": ["select", "text"],
+                    "combo": [
+                        { "representation": "Não Participa", "value": 1 },
+                        { "representation": "Casais", "value": 1 },
+                        { "representation": "60+", "value": 2 },
+                        { "representation": "Missões", "value": 3 },
+                        { "representation": "Evangelismo", "value": 4 },
+                        { "representation": "Louvor", "value": 5 },
+                        { "representation": "Mulheres", "value": 6 },
+                        { "representation": "Meninas", "value": 7 },
+                        { "representation": "Homens", "value": 8 },
+                        { "representation": "Diaconia", "value": 9 },
+                        { "representation": "Dpto infantil", "value": 10 },
+                        { "representation": "Juniores", "value": 11 },
+                        { "representation": "Adolescentes", "value": 12 },
+                        { "representation": "Ensino bíblico", "value": 13 },
+                        { "representation": "Mídia", "value": 14 },
+                        { "representation": "Áudio/Visual", "value": 15 },
+                        { "representation": "Visitação", "value": 16 },
+                        { "representation": "Cultos regulares (Segunda/Quarta/Sábado/Domingo e Lares)", "value": 17 },
+                        { "representation": "Oração Sexta", "value": 18 },
+                        { "representation": "Setepeb", "value": 19 },
+                        { "representation": "ONG", "value": 20 }
+                    ],
+                    "width": 400
                 }
             ]
         },

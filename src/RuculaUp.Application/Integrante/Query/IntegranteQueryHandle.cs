@@ -28,7 +28,7 @@ public class IntegranteQueryHandle : IRequestHandler<IntegranteQueryGet,Integran
         {
             Id = result.Id,
             Nome = result.Nome,
-            DataDeNascimento = result.DataDeNascimento,
+            DataDeNascimento = result.DataDeNascimento.ToDateTime(TimeOnly.MinValue),
             Batizado = result.Batizado,
             EstadoCivil = result.EstadoCivil,
             ServeNaIgreja = result.ServeNaIgreja,

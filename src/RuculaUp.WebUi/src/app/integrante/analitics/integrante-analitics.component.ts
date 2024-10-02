@@ -15,7 +15,7 @@ import { configurationRucula } from 'src/global/configurationRucula';
 
 export class IntegranteAnaliticsComponent implements OnInit {
    
-    constructor(private http:HttpGenericService, private tab:TabulatorService, private router: Router) {}
+    constructor(private http:HttpGenericService, private router: Router) {}
     
     ngOnInit(): void {
     
@@ -26,26 +26,30 @@ export class IntegranteAnaliticsComponent implements OnInit {
     })
 
     rucula.event.on('frame.aliasFaixaEtaria.complete',(e:any) => {
+      
+      this.http.get('http://localhost:5270/api/IntegranteQuery')
+      .subscribe(result => {
+        console.log(result)
+        var myChart = echarts.init(e.detail.element as HTMLElement);
 
-      var myChart = echarts.init(e.detail.element as HTMLElement);
+        let option = {
+            xAxis: {
+              type: 'category',
+              data: result.map((item:any) => item.faixaEtaria)
+            },
+            yAxis: {
+              type: 'value'
+            },
+            series: [
+              {
+              data: result.map((item:any) => item.total),
+                type: 'bar'
+              }
+            ]
+          };
 
-      let option = {
-          xAxis: {
-            type: 'category',
-            data: ['1-10', '11-20', '21-30', '31-40', '41-50', '51-60', '61-70', '71-80','81-90','91-100']
-          },
-          yAxis: {
-            type: 'value'
-          },
-          series: [
-            {
-              data: [120, 200, 150, 80, 70, 110, 130, 44,21,54],
-              type: 'bar'
-            }
-          ]
-        };
-
-      myChart.setOption(option);
+        myChart.setOption(option);
+      })
     })
 
     rucula.event.on('frame.aliasMinisterio.complete',(e:any) => {

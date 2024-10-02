@@ -5,7 +5,7 @@ namespace RuculaUp.Domain;
 public class Integrante : Entity<string>
 {
     public string Nome { get;  set; }
-    public DateTime DataDeNascimento { get;  set; } = DateTime.Now;
+    public DateOnly DataDeNascimento { get;  set; }
     public bool Batizado { get;  set; }
     public byte EstadoCivil { get;  set; } 
     public bool ServeNaIgreja { get;  set; }

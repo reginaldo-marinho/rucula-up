@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using RuculaUp.EntityFramework;
@@ -11,9 +12,11 @@ using RuculaUp.EntityFramework;
 namespace RuculaUp.EntityFramework.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20240926193421_Integrante_AlterarTipoColunaParaDataComTimezone")]
+    partial class Integrante_AlterarTipoColunaParaDataComTimezone
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -52,8 +55,8 @@ namespace RuculaUp.EntityFramework.Migrations
                     b.Property<bool>("Batizado")
                         .HasColumnType("boolean");
 
-                    b.Property<DateOnly>("DataDeNascimento")
-                        .HasColumnType("date");
+                    b.Property<DateTime>("DataDeNascimento")
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("EnderecoId")
                         .HasColumnType("text");

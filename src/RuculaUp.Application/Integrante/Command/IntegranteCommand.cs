@@ -25,7 +25,7 @@ public class IntegranteCommand :  IRequestHandler<IntegranteInsertCommand>,
             {
                 Id = request.IntegranteDto.Id,
                 Nome = request.IntegranteDto.Nome,
-                DataDeNascimento = request.IntegranteDto.DataDeNascimento,
+                DataDeNascimento = DateOnly.FromDateTime(request.IntegranteDto.DataDeNascimento),
                 Batizado = request.IntegranteDto.Batizado,
                 EstadoCivil = request.IntegranteDto.EstadoCivil,
                 ServeNaIgreja = request.IntegranteDto.ServeNaIgreja,

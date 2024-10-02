@@ -65,6 +65,7 @@ export class IntegranteComponent extends RuculaCrudManagment implements OnInit {
     }
 
     protected override delete(e: CustomEvent): void {
+      
       this.http.delete(e.detail.url)
         .subscribe(() => 
           this.rucula.popup.sucess({

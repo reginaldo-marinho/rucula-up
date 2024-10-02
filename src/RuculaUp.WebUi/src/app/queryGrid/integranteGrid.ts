@@ -48,6 +48,7 @@ export class IntegranteGrid extends Query implements QueryInit {
         this.rucula.setValue(propert('telefoneCelular'), integrante.telefoneCelular);
         this.rucula.setValue(propert('serveNaIgreja'), integrante.serveNaIgreja);
         this.rucula.setValue(propert('batizado'), integrante.batizado);
+        this.rucula.setValue(propert('dataDeNascimento'), new Date(integrante.dataDeNascimento).toISOString().split('T')[0]);
         this.rucula.setValue(propert('estadoCivil'), integrante.estadoCivil);
         this.rucula.setValue(propert('ministerio'), integrante.ministerio);
         this.rucula.setValue('aliasEndereco.rua', integrante.endereco.rua);

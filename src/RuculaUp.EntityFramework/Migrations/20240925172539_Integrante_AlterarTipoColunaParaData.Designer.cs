@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using RuculaUp.EntityFramework;
@@ -11,13 +12,15 @@ using RuculaUp.EntityFramework;
 namespace RuculaUp.EntityFramework.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20240925172539_Integrante_AlterarTipoColunaParaData")]
+    partial class Integrante_AlterarTipoColunaParaData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.8")
+                .HasAnnotation("ProductVersion", "8.0.6")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -52,8 +55,8 @@ namespace RuculaUp.EntityFramework.Migrations
                     b.Property<bool>("Batizado")
                         .HasColumnType("boolean");
 
-                    b.Property<DateOnly>("DataDeNascimento")
-                        .HasColumnType("date");
+                    b.Property<DateTime>("DataDeNascimento")
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("EnderecoId")
                         .HasColumnType("text");

@@ -17,6 +17,7 @@
     <ProjectReference Include="../RuculaUp.Application/RuculaUp.Application.csproj" />
     <ProjectReference Include="../RuculaUp.EntityFramework/RuculaUp.EntityFramework.csproj" />
     <ProjectReference Include="../RuculaUp.EntityFramework.Query/RuculaUp.EntityFramework.Query.csproj" />
+    <ProjectReference Include="..\RuculaUp.Dapper\RuculaUp.Dapper.csproj" />
   </ItemGroup>
 
 </Project>
