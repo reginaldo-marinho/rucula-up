@@ -14,7 +14,15 @@ Para que o fluxo de desenvolvimento seja o mais flexivel possível, antes de mai
 
 > Até este ponto foquei nas bibliotecas que criei para constatar seu funcionamento, agora cheguei em um ponto onde devo ir para a infraestrutura.
 
+## Sobre o Desenvolvimento
+- Este projeto deve ser usado com boas práticas de desenvolvimento de software
+- Crar formas de facilitar a manutenção e a entrega
+- Criar padrões de modo que facilite o gerenciamento do projeto
+- Documentar principalmente  a parte arquitetural e configurações do projeto
+
 ## Subindo Projeto
+
+Para que haja regras e padrões, procure usar o script rucula.sh, como ele você poderá gerenciar o banco de dados, o docker e ainda subir o projeto localmente.
 
 ## Como Testar
 

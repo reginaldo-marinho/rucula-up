@@ -198,8 +198,8 @@ case "$1" in
         exec_docker
     ;;
     "run")
-        dotnet watch --project src/RuculaUp.WebApi/ --no-build
-        ng serve --base-href src/RuculaUp.WebUi/
+        ASPNETCORE_ENVIRONMENT=Development dotnet watch --project src/RuculaUp.WebApi/ --urls "http://127.0.0.1:5270"
+
     ;;
     "ef")
         set_environment
