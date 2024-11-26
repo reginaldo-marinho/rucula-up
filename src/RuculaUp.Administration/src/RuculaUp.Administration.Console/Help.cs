@@ -16,11 +16,19 @@ public class Help
     Console.WriteLine($"  {CommandsNameCostants.UIInspect}          Inspect Container");
 
     Console.WriteLine();
-    Console.WriteLine($"  {CommandsNameCostants.AppUp}                  compose up Containers");
-    Console.WriteLine($"  {CommandsNameCostants.AppDown}                compose down Containers");
+    Console.WriteLine($"  {CommandsNameCostants.AppUp}        compose up Containers");
+    Console.WriteLine($"  {CommandsNameCostants.AppUpBuild}  compose up Containers and force build images");
+    Console.WriteLine($"  {CommandsNameCostants.AppDown}      compose down Containers");
 
-    Console.WriteLine($"  {CommandsNameCostants.AppDatabaseBackup}    compose database backup");
+    Console.WriteLine($"  {CommandsNameCostants.AppStart}     compose start container(s)");
+    Console.WriteLine($"  {CommandsNameCostants.AppRemove}        compose remove container(s)");
+    Console.WriteLine($"  {CommandsNameCostants.AppStop}      compose stop container(s)");
 
+    Console.WriteLine($"  {CommandsNameCostants.AppDtBExec} compose exec iterative mode container");
+    Console.WriteLine($"  {CommandsNameCostants.AppDatabaseBackup} compose container(database) backup");
+
+
+    Console.WriteLine();
 
   }
 }

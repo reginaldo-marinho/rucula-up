@@ -13,6 +13,7 @@ public sealed class AppCommand : Command
       CommandsNameCostants.AppRemove => $"docker compose -p  {configurationBase.ProjectName} rm --force",
       CommandsNameCostants.AppStop => $"docker compose -p  {configurationBase.ProjectName} stop",
       CommandsNameCostants.AppDatabaseBackup => $"docker run --rm --volumes-from dtb_{configurationBase.ProjectName} -v {configurationBase.PathBackupDestination}:/backup ubuntu tar cvf /backup/backup_{configurationBase.ProjectName}_{DateTime.Now.ToString("yyyyMMddTHHmmssfffffffK")}.tar {configurationBase.PathBackupOrigin}",
+      CommandsNameCostants.AppDtBExec => $"docker exec -it dtb_{configurationBase.ProjectName} /bin/bash",
       _ => throw new ("Invalid command name"),
     };
 }

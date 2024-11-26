@@ -31,5 +31,6 @@ public class CommandsNameCostants
   public const string AppDown = $"{PrincipalCommandApp}-down";
   public const string AppRemove = $"{PrincipalCommandApp}-rm";
   public const string AppStop = $"{PrincipalCommandApp}-stop";
+  public const string AppDtBExec = $"{PrincipalCommandApp}-db-exec";
   public const string AppDatabaseBackup = $"{PrincipalCommandApp}-db-backup";
 }

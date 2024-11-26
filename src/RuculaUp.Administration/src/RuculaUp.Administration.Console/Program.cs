@@ -12,20 +12,15 @@ if (args.Length == 0)
   Console.ResetColor();
   Console.WriteLine("Welcome to rucula-up cli");
   Console.WriteLine("Please, enter a command or enter a --help for a list of available commands. ");
+
+  Help.Show();
+  return;
 }
-#if DEBUG
-    if (args.Length == 0)
-    {
-      string inputCommand = Console.ReadLine();
-      args = Regex.Split(inputCommand, @" +");
-    }
-#endif
 
   var target = args[0];
 
   if (target == "--help")
   {
-    Help.Show();
     return;
   }
 
