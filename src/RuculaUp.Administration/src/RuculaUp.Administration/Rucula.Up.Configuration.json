@@ -1,0 +1,16 @@
+{
+  "ProjectPath": "/home/reginaldo-marinho/Desenvolvimento/rucula-up",
+  "PathBackupDestination": "/home/reginaldo-marinho/rucula-up/backup",
+  "Projects":[
+    {
+      "ProjectName": "proj_staging_test_development",
+      "PathBackupOrigin":"/var/lib/postgresql/data",
+      "DockerComposeFile": "compose.staging.yml"
+    },
+    {
+      "ProjectName": "rucula-up-production",
+      "PathBackupOrigin":"/var/lib/postgresql/data",
+      "DockerComposeFile": "compose.production.yml"
+    }
+  ]
+}

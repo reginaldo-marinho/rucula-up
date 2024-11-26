@@ -7,6 +7,8 @@ COPY src/RuculaUp.Application/*.csproj ./src/RuculaUp.Application/
 COPY src/RuculaUp.Domain/*.csproj ./src/RuculaUp.Domain/
 COPY src/RuculaUp.EntityFramework/*.csproj ./src/RuculaUp.EntityFramework/
 COPY src/RuculaUp.EntityFramework.Query/*.csproj ./src/RuculaUp.EntityFramework.Query/
+COPY src/RuculaUp.Dapper/*.csproj ./src/RuculaUp.Dapper/
+
 
 RUN dotnet restore
 COPY src/. ./src/

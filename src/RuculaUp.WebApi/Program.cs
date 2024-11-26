@@ -6,6 +6,7 @@ using RuculaUp.EntityFramework.Query;
 using RuculaUp.WebApi;
 using RuculaX.Database.Query;
 using RuculaX.EntityFramework;
+using Rucula.Swagger;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -42,14 +43,19 @@ builder.Services.AddScoped<FactoryQuery<ApplicationContext>>();
 
 var app = builder.Build();
 
+app.UseStaticFiles();
+
 app.MapControllers();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     builder.Configuration.AddUserSecrets<Program>();
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c=> {
+        c.InjectRuculaUi();
+    });
+    app.UseRuculaUiSwagger();
+
 }
 
 app.UseHttpsRedirection();
