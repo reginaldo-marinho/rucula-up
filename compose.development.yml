@@ -1,0 +1,42 @@
+services:
+  ruculaup_development:
+    build:
+      context: .
+    restart: always
+    env_file:
+      - path: /home/reginaldo-marinho/app.env
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ENVIRONMENT_CONTAINER=
+      - DB_HOST=DB_DEVELOPMENT
+    ports:
+      - "4900:5900"
+    networks:
+      - app
+      - dtb
+    volumes:
+      - type: bind
+        source: /home/reginaldo-marinho/rucula-up/UI/window
+        target: /home/reginaldo-marinho/rucula-up/UI/window
+        read_only: true
+  postgres:
+    image: postgres:12.17-alpine3.19
+    container_name: db_postgres_proj_test_development
+    restart: always
+    hostname: DB_DEVELOPMENT
+    env_file:	
+      - path: /home/reginaldo-marinho/db.env
+    environment:
+      PGDATA: /var/lib/postgresql/data/pgdata
+    networks:
+      - dtb
+    volumes:
+      - vol_proj_staging_test_development:/var/lib/postgresql/data
+
+networks:
+  app: {}
+  dtb: {}
+
+volumes:
+  vol_proj_staging_test_development:
+

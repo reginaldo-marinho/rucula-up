@@ -9,6 +9,9 @@
 
   <ItemGroup>
     <Content Include="Properties/launchSettings.json" />
+    <Content Update="UISERVERFOLDER">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
@@ -23,6 +26,7 @@
     <ProjectReference Include="../RuculaUp.EntityFramework/RuculaUp.EntityFramework.csproj" />
     <ProjectReference Include="../RuculaUp.EntityFramework.Query/RuculaUp.EntityFramework.Query.csproj" />
     <ProjectReference Include="..\RuculaUp.Dapper\RuculaUp.Dapper.csproj" />
+    <ProjectReference Include="..\RuculaUp.UI.Server\src\RuculaUp.UI.Server\RuculaUp.UI.Server.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,20 +1,22 @@
 services:
-  app_proj_staging_test_development:
+  app_proj_staging_test_staging:
     build:
       context: .
+      volumes:
+      	- /home/reginaldo-marinho/rucula-up/UI/window:/home/reginaldo-marinho/rucula-up/UI/window
     restart: always
     env_file:
       - path: /home/reginaldo-marinho/app.env 
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_ENVIRONMENT=Staging
     ports:
       - "4900:5900"
     networks:
-      - net_app_proj_staging_test_development
-      - net_dtb_proj_staging_test_development
+      - net_app_proj_staging_test_staging
+      - net_dtb_proj_staging_test_staging
   postgres:
     image: postgres:12.17-alpine3.19
-    container_name: dtb_proj_staging_test_development
+    container_name: dtb_proj_staging_test_staging
     restart: always
     hostname: DB_STAGING
     env_file:	
@@ -22,12 +24,12 @@ services:
     environment:
       PGDATA: /var/lib/postgresql/data/pgdata
     networks:
-      - net_dtb_proj_staging_test_development
+      - net_dtb_proj_staging_test_staging
     volumes:
-      - vol_proj_staging_test_development:/var/lib/postgresql/data
+      - vol_proj_staging_test_staging:/var/lib/postgresql/data
 networks:
-  net_app_proj_staging_test_development: {}
-  net_dtb_proj_staging_test_development: {}
+  net_app_proj_staging_test_staging: {}
+  net_dtb_proj_staging_test_staging: {}
 
 volumes:
-  vol_proj_staging_test_development:
+  vol_proj_staging_test_staging:

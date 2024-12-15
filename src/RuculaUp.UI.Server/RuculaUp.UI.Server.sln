@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{826B4161-7063-4843-984A-CF8E58376B51}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RuculaUp.UI.Server", "src\RuculaUp.UI.Server\RuculaUp.UI.Server.csproj", "{7A345B83-24A5-4E67-99B7-70C761A2094C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{A3479DE2-6DCD-4404-B11C-A3831539698C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RuculaUp.UI.Server.Test", "RuculaUp.UI.Server.Test\RuculaUp.UI.Server.Test.csproj", "{737FE2AD-59E0-4E73-996F-27B415F800EA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7A345B83-24A5-4E67-99B7-70C761A2094C} = {826B4161-7063-4843-984A-CF8E58376B51}
+		{737FE2AD-59E0-4E73-996F-27B415F800EA} = {A3479DE2-6DCD-4404-B11C-A3831539698C}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7A345B83-24A5-4E67-99B7-70C761A2094C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A345B83-24A5-4E67-99B7-70C761A2094C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A345B83-24A5-4E67-99B7-70C761A2094C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A345B83-24A5-4E67-99B7-70C761A2094C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{737FE2AD-59E0-4E73-996F-27B415F800EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{737FE2AD-59E0-4E73-996F-27B415F800EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{737FE2AD-59E0-4E73-996F-27B415F800EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{737FE2AD-59E0-4E73-996F-27B415F800EA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

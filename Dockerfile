@@ -2,13 +2,15 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 
 COPY *.sln .
+
+COPY src/RuculaUp.UI.Server/*.csproj ./src/RuculaUp.UI.Server/
 COPY src/RuculaUp.WebApi/*.csproj ./src/RuculaUp.WebApi/
 COPY src/RuculaUp.Application/*.csproj ./src/RuculaUp.Application/
 COPY src/RuculaUp.Domain/*.csproj ./src/RuculaUp.Domain/
 COPY src/RuculaUp.EntityFramework/*.csproj ./src/RuculaUp.EntityFramework/
 COPY src/RuculaUp.EntityFramework.Query/*.csproj ./src/RuculaUp.EntityFramework.Query/
 COPY src/RuculaUp.Dapper/*.csproj ./src/RuculaUp.Dapper/
-
+COPY src/RuculaUp.UI.Server/src/RuculaUp.UI.Server/*.csproj ./src/RuculaUp.UI.Server/src/RuculaUp.UI.Server/
 
 RUN dotnet restore
 COPY src/. ./src/

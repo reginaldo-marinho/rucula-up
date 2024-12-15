@@ -7,8 +7,22 @@ public class Help
 {
   public static void Show()
   {
-    Console.WriteLine("usage: [ProjectName] [CommandName]");
+
     Console.WriteLine();
+    Console.WriteLine("Projects Name:");
+    foreach (var project in Configurations.Get().Projects)
+    {
+      Console.ForegroundColor = ConsoleColor.Green;
+      Console.Write($"  {project.ProjectName} ");
+      Console.ResetColor();
+      Console.WriteLine(project.Description);
+
+    }
+    Console.WriteLine();
+    Console.WriteLine("usage: [ProjectName] [CommandName]");
+
+    Console.WriteLine();
+
     Console.WriteLine($"  {CommandsNameCostants.UICreateImage}     Create new Image");
     Console.WriteLine($"  {CommandsNameCostants.UIRun}              Create new Container");
     Console.WriteLine($"  {CommandsNameCostants.UIStop}             Stop Container");
@@ -26,7 +40,6 @@ public class Help
 
     Console.WriteLine($"  {CommandsNameCostants.AppDtBExec} compose exec iterative mode container");
     Console.WriteLine($"  {CommandsNameCostants.AppDatabaseBackup} compose container(database) backup");
-
 
     Console.WriteLine();
 

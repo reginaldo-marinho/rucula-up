@@ -6,8 +6,10 @@ public class ConfigurationBase
     public string DockerComposeFile { get; private set; }
     public string PathBackupOrigin { get; private set; }
     public string PathBackupDestination { get; private set; }
+    public string PathWindow { get; private set; }
     public string OS { get; private set; }
     public string Terminal { get; private set; }
+    
     public ConfigurationBase(string projectName)
     {
       if (projectName != RuculaUpAdministrationConstants.ProjectNameRoot)
@@ -18,6 +20,7 @@ public class ConfigurationBase
         ProjectName = project.ProjectName;
         PathBackupOrigin = project.PathBackupOrigin;
         PathBackupDestination = configuration.PathBackupDestination;
+        PathWindow = configuration.PathWindow;
       }
 
       OpetationSystem();
