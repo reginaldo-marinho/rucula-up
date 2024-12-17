@@ -4,7 +4,6 @@ import * as echarts from 'echarts';
 
 import * as rw from 'src/app/integrante/analitics/integrante-analitics.rucula.json'
 import { HttpGenericService } from '../../http-generic/http-generic.service';
-import { TabulatorService } from '../../tabulator/tabulator.service';
 import { Rucula } from '@reginaldo-marinho/dist/Rucula';
 import { configurationRucula } from 'src/global/configurationRucula';
 
@@ -25,11 +24,13 @@ export class IntegranteAnaliticsComponent implements OnInit {
         id: 'js'
     })
 
+    rucula.init()
+    
     rucula.event.on('frame.aliasFaixaEtaria.complete',(e:any) => {
       
       this.http.get('http://localhost:5270/api/IntegranteQuery')
       .subscribe(result => {
-        console.log(result)
+
         var myChart = echarts.init(e.detail.element as HTMLElement);
 
         let option = {

@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
-import * as rw from 'src/app/integrante/integrante.rucula.json'
 import { HttpGenericService } from '../http-generic/http-generic.service';
 import { Integrante } from './Integrante';
 import { TabulatorService } from '../tabulator/tabulator.service';
@@ -22,7 +20,7 @@ export class IntegranteComponent extends RuculaCrudManagment implements OnInit {
     ) {
       super({
          target:"js",
-         rw:rw,
+         windowOrPath:'integrante.rucula.json',
          reload: () => {
           this.startGrid()
          }
@@ -36,13 +34,21 @@ export class IntegranteComponent extends RuculaCrudManagment implements OnInit {
       this.integranteGrid.init();
     }
 
-    ngOnInit(): void {
+    async ngOnInit() {
       
-      this.init();
+      await this.init()
+
       this.startGrid()
 
-      this.rucula.event.on('r-analise',() => this.router.navigate(['/integrante-analitics']))
+      this.rucula.event.on('r-analise',() => {
+
+        this.router.navigate(['/integrante-analitics'])
+              
+      })
+      
       this.rucula.event.on('r-composicao',() => this.router.navigate(['/composicao']))
+      
+      this.rucula.create()
     }
     
     protected override save(e: CustomEvent): void {      

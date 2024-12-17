@@ -22,9 +22,11 @@ export class ComposicaoComponent implements OnInit {
         id: 'js'
     })
 
+    rucula.init()
+
     let composicaoData  =  JSON.parse(JSON.stringify(data)) 
     rucula.event.on('frame.aliasComposicao.complete',(e:any) => {
-
+      
       var myChart = echarts.init(e.detail.element as HTMLElement);
 
       myChart.showLoading();

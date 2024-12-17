@@ -25,10 +25,9 @@ Para que o fluxo de desenvolvimento seja o mais flexivel possível, antes de mai
 ## Multi Tenancy
 ## Tecnologias
 
-| <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/240px-Angular_full_color_logo.svg.png" width="200"> |<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/233px-Postgresql_elephant.svg.png" width="200"> | <img src="https://learn.microsoft.com/pt-br/ef/core/what-is-new/ef-core-8.0/ef8.png" width="200"> |
+| <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/240px-Angular_full_color_logo.svg.png" width="100"> |<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/233px-Postgresql_elephant.svg.png" width="100"> | <img src="https://learn.microsoft.com/pt-br/ef/core/what-is-new/ef-core-8.0/ef8.png" width="100"> |
 |-------------------------------------------|-------------------------------------------|-------------------------------------------|
-
-
+| <img src="https://api.nuget.org/v3-flatcontainer/dapper/2.1.35/icon" width="100"> |||
 
 - Angular
 - Docker
@@ -63,6 +62,8 @@ Projects Name:
 usage: [ProjectName] [CommandName]
 
   ui-image-create     Create new Image
+  ui-image-remove     Create the Image
+  ui-image-backup     Backup of  Image
   ui-run              Create new Container
   ui-stop             Stop Container
   ui-start            Start Container
@@ -98,6 +99,8 @@ usage: [ProjectName] [CommandName]
 
 ## Arquivos de Configurações
 
+- Networks
+  - [ ] application
 - File Docker Compose
   - [ ]  service **ruculaup_**
     - environment
