@@ -34,12 +34,12 @@ export class IntegranteGrid extends Query implements QueryInit {
       let id = row._row.data['Id']
       
       let url = this.rucula.url({
-          absolute:'',
           relative:'Integrante',
           params:`id=${id}`
       }).getURL()
 
       this.http.get(url).subscribe(integrante => {
+
         this.rucula.setValue(AlIntegrante('id'), integrante.id);
         this.rucula.setValue(AlIntegrante('nome'), integrante.nome);
         this.rucula.setValue(AlIntegrante('telefoneCelular'), integrante.telefoneCelular);
@@ -51,9 +51,10 @@ export class IntegranteGrid extends Query implements QueryInit {
         this.rucula.setValue(AlEndereco('rua'), integrante.endereco.rua);
         this.rucula.setValue(AlEndereco('bairro'), integrante.endereco.bairro);
         this.rucula.setValue(AlEndereco('cidade'), integrante.endereco.cidade);
-     
+        
+        this.rucula.buttonManaged.saveToAlter();
       })
-
+      
       function AlIntegrante(prop:string){
         return `aliasIntegrante.${prop}`
       }

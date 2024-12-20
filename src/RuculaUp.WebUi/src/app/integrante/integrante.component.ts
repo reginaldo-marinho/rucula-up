@@ -56,7 +56,9 @@ export class IntegranteComponent extends RuculaCrudManagment implements OnInit {
       this.http.post<Integrante>(e.detail.url,e.detail.body)
         .subscribe(() => 
           this.rucula.popup.sucess({
-            text:'Integrante Registrado 👍🏻😃'
+            text:'Integrante Registrado'
+          },() => {
+            this.rucula.buttonManaged.saveToAlter()
           })
         ) 
     } 
@@ -65,19 +67,22 @@ export class IntegranteComponent extends RuculaCrudManagment implements OnInit {
       this.http.put<Integrante>(e.detail.url,e.detail.body)
         .subscribe(() => 
           this.rucula.popup.sucess({
-            text:'Integrante Alterado 👍🏻😃',
+            text:'Integrante Alterado'
           })
         ) 
     }
 
     protected override delete(e: CustomEvent): void {
-      
       this.http.delete(e.detail.url)
-        .subscribe(() => 
+        .subscribe(() => {
+          
           this.rucula.popup.sucess({
-            text:'Integrante Removido 👍🏻😃'
-
+            text:'Integrante Removido'
+          },() => {
+            this.rucula.buttonManaged.disableAll()
+            this.rucula.revertToinit();
           })
+        }
         ) 
     }
 }
